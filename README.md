@@ -8,7 +8,7 @@ Welcome to the **NFT Collection Risk Assessment Tool**! This handy tool is desig
 ---
 
 #### 🛠 How It Works
-Our tool uses a set of key metrics to assess the risk associated with NFT collections. Just input a few numbers, and voilà - you'll get a risk score from 0 (higher risk) to 100 (lower risk). Here's what we measure:
+Our tool uses a set of key metrics to assess the risk associated with NFT collections. Just input a few numbers, and voilà - you'll get a risk score from 0 (low risk) to 100 (high risk). Here's what we measure:
 
 1. **Unique Holders Percentage (UHP)**: Gauges ownership distribution.
 2. **Percentage of Listed Items (PLI)**: Indicates market liquidity.
