@@ -8,23 +8,24 @@ Welcome to the **NFT Collection Risk Assessment Tool**! This handy tool is desig
 ---
 
 #### 🛠 How It Works
-Our tool uses a set of key metrics to assess the risk associated with NFT collections. Just input a few numbers, and voilà - you'll get a risk score from 0 (higher risk) to 1 (lower risk). Here's what we measure:
+Our tool uses a set of key metrics to assess the risk associated with NFT collections. Just input a few numbers, and voilà - you'll get a risk score from 0 (higher risk) to 100 (lower risk). Here's what we measure:
 
-1. **Unique Holders Percentage (UHP)** - Diversity is the spice of life... and NFTs!
-2. **Percentage of Listed Items (PLI)** - Are people holding or selling?
-3. **Volume Change in the Last 90 Days (VC90)** - Is the collection gaining traction?
-4. **Floor Price Movement in the Last 90 Days (FPM90)** - Up? Down? Let's find out!
-5. **Sales Change in the Last 90 Days (SC90)** - Are sales numbers booming?
-6. **Twitter Engagement (TE)** - How's the buzz on Twitter?
-7. **Market Sentiment (MS)** - What's the overall vibe?
-8. **Team Capital (TC)** - Does the team have the resources to sustain?
+1. **Unique Holders Percentage (UHP)**: Gauges ownership distribution.
+2. **Percentage of Listed Items (PLI)**: Indicates market liquidity.
+3. **Volume Change (VC90)**: Looks at trading volume dynamics.
+4. **Floor Price Movement (FPM90)**: Tracks the lowest price trends.
+5. **Sales Change (SC90)**: Measures the change in sales activity.
+6. **Market Sentiment (MS)**: Captures the overall market outlook.
+7. **Team Capital (TC)**: Assesses the backing behind the collection.
+8. **Community Engagement and Activity (CEA)**: Evaluates community involvement.
+9. **Liquidity Gap (LG)**: Compares floor price with collection offer price.
 
 Just fill in the numbers in our easy-to-use form and hit the "Calculate Risk" button. The tool does the rest, crunching the numbers to give you an instant risk score.
 
 ---
 
 #### 🚀 Getting Started
-1. **Open the Tool**: Head over to our tool hosted on [Vercel](#) (link to the deployed tool).
+1. **Open the Tool**: Head over to our tool hosted on [Vercel](https://nft-risk-assessment.vercel.app/) (link to the deployed tool).
 2. **Input the Data**: Enter the values for each metric in the provided fields.
 3. **Calculate**: Press the button and see the magic happen!
 
@@ -43,7 +44,7 @@ The tool runs on JavaScript and is powered by some cool coding magic. We normali
 ---
 
 #### 🙌 Join the Community
-Got questions, feedback, or just want to chat NFTs? Join our community on [Discord](#) (link to a Discord server, if available).
+Got questions, feedback, or just want to chat NFTs? Join our community on [Discord](https://discord.gg/anonymices) (Anonymice).
 
 ---
 
@@ -59,5 +60,3 @@ Happy NFT hunting! 🚀🌌
 ---
 
 #### © NFT Collection Risk Assessment Tool
-
-Feel free to customize the links and add any additional information specific to your project or community!

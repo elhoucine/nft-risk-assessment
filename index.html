@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFT Collection Risk Assessment Tool</title>
     <style>
-        /* Add some basic styling */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             padding: 0;
         }
+
         .container {
             max-width: 600px;
             margin: auto;
         }
+
         .form-group {
             margin-bottom: 10px;
         }
+
         label {
             display: block;
         }
-        input[type="number"],
-        select {
+
+        input[type="number"] {
             width: 100%;
             padding: 8px;
             margin: 5px 0;
@@ -31,6 +34,7 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
+
         button {
             width: 100%;
             background-color: #4CAF50;
@@ -41,46 +45,56 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #45a049;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>NFT Collection Risk Assessment</h1>
         <form id="riskForm">
             <div class="form-group">
                 <label for="UHP">Unique Holders Percentage:</label>
-                <input type="number" id="UHP" name="UHP" min="0" max="100" required>
+                <input type="number" value="31" step="0.01" id="UHP" name="UHP" min="0" max="100" required>
             </div>
             <div class="form-group">
                 <label for="PLI">Percentage of Listed Items:</label>
-                <input type="number" id="PLI" name="PLI" min="0" max="100" required>
+                <input type="number" value="0.6" step="0.01" id="PLI" name="PLI" min="0" max="100" required>
             </div>
             <div class="form-group">
                 <label for="VC90">Percentage of Volume Change (Last 90 Days):</label>
-                <input type="number" id="VC90" name="VC90" min="-100" max="100" required>
-            </div>
-            <div class="form-group">
-                <label for="FPM90">Percentage of Floor Price Movement (Last 90 Days):</label>
-                <input type="number" id="FPM90" name="FPM90" min="-100" max="100" required>
+                <input type="number" value="-0.4" step="0.01" id="VC90" name="VC90" min="-100" max="100" required>
             </div>
             <div class="form-group">
                 <label for="SC90">Percentage of Sales Change (Last 90 Days):</label>
-                <input type="number" id="SC90" name="SC90" min="-100" max="100" required>
+                <input type="number" value="-0.25" step="0.01" id="SC90" name="SC90" min="-100" max="100" required>
             </div>
             <div class="form-group">
-                <label for="TE">Twitter Engagement (1-3):</label>
-                <input type="number" id="TE" name="TE" min="1" max="3" required>
+                <label for="FPM90">Percentage of Floor Price Movement (Last 90 Days):</label>
+                <input type="number" value="-42" step="0.01" id="FPM90" name="FPM90" min="-100" max="100" required>
             </div>
             <div class="form-group">
                 <label for="MS">Market Sentiment (1-3):</label>
-                <input type="number" id="MS" name="MS" min="1" max="3" required>
+                <input type="number" value="2" id="MS" name="MS" min="1" max="3" required>
             </div>
             <div class="form-group">
                 <label for="TC">Team Capital (1-3):</label>
-                <input type="number" id="TC" name="TC" min="1" max="3" required>
+                <input type="number" value="1" id="TC" name="TC" min="1" max="3" required>
+            </div>
+            <div class="form-group">
+                <label for="CEA">Community Engagement and Activity (0-100):</label>
+                <input type="number" value="30" id="CEA" name="CEA" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="floorPrice">Floor Price:</label>
+                <input type="number" value="250" step="0.01" id="floorPrice" name="floorPrice" required>
+            </div>
+            <div class="form-group">
+                <label for="offerPrice">Collection Offer Price:</label>
+                <input type="number" value="56" step="0.01" id="offerPrice" name="offerPrice" required>
             </div>
             <button type="submit">Calculate Risk</button>
         </form>
@@ -89,8 +103,9 @@
 
     <script src="riskCalculator.js"></script>
     <script>
-        document.getElementById('riskForm').addEventListener('submit', function(event) {
+        document.getElementById('riskForm').addEventListener('submit', function (event) {
             event.preventDefault();
+
             // Collect form data
             const formData = {
                 UHP: parseFloat(document.getElementById('UHP').value),
@@ -98,15 +113,30 @@
                 VC90: parseFloat(document.getElementById('VC90').value),
                 FPM90: parseFloat(document.getElementById('FPM90').value),
                 SC90: parseFloat(document.getElementById('SC90').value),
-                TE: parseFloat(document.getElementById('TE').value),
                 MS: parseFloat(document.getElementById('MS').value),
                 TC: parseFloat(document.getElementById('TC').value),
+                CEA: parseFloat(document.getElementById('CEA').value),
+                floorPrice: parseFloat(document.getElementById('floorPrice').value),
+                offerPrice: parseFloat(document.getElementById('offerPrice').value)
             };
+
             // Calculate risk
             const riskScore = calculateNFTCollectionRisk(formData);
-            document.getElementById('result').innerText = `NFT Collection Risk Score: ${riskScore}`;
+            const riskLevel = getRiskLevel(riskScore);
+            alert('Investing in this collection is ' + riskLevel);
+            document.getElementById('result').innerText = `NFT Collection Risk Score: ${riskScore.toFixed(2)}% (${riskLevel})`;
         });
+
+        function getRiskLevel(score) {
+            if (score >= 50) {
+                return 'High Risk';
+            } else if (score >= 30) {
+                return 'Moderate Risk';
+            } else {
+                return 'Low Risk';
+            }
+        }
     </script>
 </body>
-</html>
+
 </html>
